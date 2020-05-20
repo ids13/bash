@@ -1,2 +1,3 @@
 belajar git
 percobaan ke 2 push
+tambah baris ke 3
