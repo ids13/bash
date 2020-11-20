@@ -1,0 +1,43 @@
+subtitusi dengan tulisan berwarna
+----------------------------------------------------
+sed s/VULNERABLE/$(printf "\033[0;33mVULNERABLE\033[0m")/ g
+bsa menggunakan PRINTF , bisa juga dengan ECHO tpi harus dengan tambahan option -e.
+
+split string
+-----------------
+cut delimiternya hanya char
+awk delimiternya bisa string
+awk -F '|' '$1 == "john" { print $2 }'
+
+array split
+----------------
+ketika di beri tanda " " contoh "$*"/"$@" ketika input ke variable array contoh: a=("$@")
+* : akan membuat satu argumen
+@ : akan membuat terpisah, kesetiap elemen array
+
+eval : mengeksekusi string sbagai command
+; : adalah pengganti enter
+
+getoption
+-------------- 
+\?) echo "Invalid option: $OPTARG" 1>&2;; 
+:) echo "Invalid option: $OPTARG requires an argument" 1>&2;;
+ketika menggunakan getopts, nilai yang di baypass lewat option. sebaiknya di salin ke variable kemudian 
+di bagian akhir getopts di akhiri dengan shitf(OPTIND-1))
+
+echo
+-----
+-jika ingin menghitung length var . ketika di echo aktifkkan option -n . karna echo secara default akan menambahkan newline di bagian akhir
+-perhatikan penggunaan "" untukmembuat satu daftar / gunakan array untuk looping variable
+
+General
+--------
+perhatikan penggunaan "" untukmembuat satu daftar
+gunakan array untuk looping variable
+-h = h tanpa : di getopts berarti option boleh tidak ada value nya
+
+if penggunaan [...]
+-------------------
+pada saat melakukan perbandingan dengan if [ ], variable dan perbandingannya sebaiknya di apit oleh double quotes
+gunanya untuk menghandle data yang mengandung space dan new line
+contoh: if [ "$var" == "1" ]
